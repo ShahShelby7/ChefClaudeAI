@@ -51,3 +51,27 @@ Start the development server:
 npm run dev
 # or
 yarn dev
+
+The application will be accessible at http://localhost:3000 (or the port specified by your development environment).
+```
+
+### 💻 Tech Stack
+Frontend: React
+
+**Styling**: Custom CSS/SASS (or specify if you use a framework like Tailwind)
+
+**AI/Backend**: Hugging Face Inference API
+
+**Model**: mistralai/Mixtral-8x7B-Instruct-v0.1
+
+### 🧠 How the AI Integration Works
+
+The recipe generation logic is encapsulated in ai.js and uses the @huggingface/inference library.
+
+The user's ingredient list (e.g., ["chicken", "oregano", "cheese"]) is sent to the backend.
+
+The API sends a chatCompletion request to the Mistral model with a System Prompt defining its role:
+
+"You are an assistant that receives a list of ingredients... and suggests a recipe they could make..."
+
+The model generates a response formatted in Markdown.
